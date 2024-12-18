@@ -194,7 +194,7 @@ struct OneDayData: Codable {
 // MARK: - Item
 struct Item: Codable {
     let id: String
-    let dateTime: Date
+    let dateTime: String
     let measure: String
     let value: Double
 

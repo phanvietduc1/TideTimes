@@ -24,7 +24,7 @@ class TideService: ObservableObject {
     private func fetchTideData(notation: String) async throws -> OneDayData {
         // https://environment.data.gov.uk/flood-monitoring/id/measures/E72639-level-tidal_level-Mean-15_min-mAOD/readings?since=2024-12-17T10:00:00Z&_sorted&_limit=50
         
-        let urlString = "https://environment.data.gov.uk/flood-monitoring/id/measures/\(notation)-level-tidal_level-Mean-15_min-mAOD/readings?since=\(getISOStartOfDay())&_sorted&_limit=50"
+        let urlString = "https://environment.data.gov.uk/flood-monitoring/id/measures/E72639-level-tidal_level-Mean-15_min-mAOD/readings?since=\(getISOStartOfDay())&_sorted&_limit=50"
         print("Fetching tide data from Storm Glass API: \(urlString)")
         return try await AF.request(
             urlString
@@ -55,7 +55,7 @@ class TideService: ObservableObject {
     }
     
     func fetchNearbyStations(lat: Double, lon: Double) async throws -> [Station] {
-        let urlString = "https://environment.data.gov.uk/flood-monitoring/id/stations?type=TideGauge"
+        let urlString = "https://environment.data.gov.uk/flood-monitoring/id/stations?type=TideGauge&lat=\(lat)&long=\(lon)&dist=50"
         let response = try await AF.request(
             urlString
         ).serializingDecodable(StationResponse.self).value

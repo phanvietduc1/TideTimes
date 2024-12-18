@@ -38,7 +38,7 @@ struct StationListView: View {
                         TideDetailView(notation: station.notation ?? "")
                     } label: {
                         VStack(alignment: .leading) {
-                            Text(station.label ?? "")
+                            Text(station.notation ?? "")
                                 .font(.headline)
                         }
                     }
