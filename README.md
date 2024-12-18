@@ -10,6 +10,10 @@ The app uses data from the [UK Environment Agency](https://environment.data.gov.
 - Browse water levels by station and region.
 - Interactive charts for easy data visualization.
 
+# ScreenShoot
+<img width="355" alt="Screenshot 2024-12-18 at 17 05 37" src="https://github.com/user-attachments/assets/5dacd1e3-a706-49bc-9cb4-1927ace580df" />
+
+
 ## Installation
 
 You can install the Water Level Tracker app on your iOS device by following these steps:
