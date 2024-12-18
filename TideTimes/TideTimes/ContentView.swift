@@ -17,7 +17,7 @@ struct ContentView: View {
             VStack {
                 // Location search
                 SearchBar(text: $searchText)
-                    .onChange(of: searchText) { _ in
+                    .onChange(of: searchText) { _,_ in
                         locationManager.searchLocations(query: searchText)
                     }
                 
@@ -29,16 +29,6 @@ struct ContentView: View {
                             Text(location.name)
                         }
                     }
-                    
-                    if let savedLocation = savedLocation, let location = try? JSONDecoder().decode(Location.self, from: savedLocation){
-                        NavigationLink {
-                            TideDetailView(location: location)
-                        } label: {
-                            Text(location.name)
-                                .font(.headline)
-                        }
-                        .padding()
-                    }    
                 }
                 
                 Spacer()

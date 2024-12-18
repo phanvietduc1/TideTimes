@@ -35,14 +35,10 @@ struct StationListView: View {
             } else {
                 List(stations) { station in
                     NavigationLink {
-                        TideDetailView(location: Location(
-                            name: station.name,
-                            latitude: Double(station.latitude) ?? 0,
-                            longitude: Double(station.longitude) ?? 0
-                        ))
+                        TideDetailView(notation: station.notation ?? "")
                     } label: {
                         VStack(alignment: .leading) {
-                            Text(station.name)
+                            Text(station.label ?? "")
                                 .font(.headline)
                         }
                     }
