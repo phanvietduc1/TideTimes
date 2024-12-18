@@ -1,7 +1,7 @@
 # Water Level Tracker
 
 Water Level Tracker is an iOS app that provides real-time data on water levels from various monitoring stations across the United Kingdom. 
-The app uses data from the [UK Environment Agency](https://environment.data.gov.uk/) to display daily water level charts for each station in England.
+The app uses data from the [UK Environment Agency](https://environment.data.gov.uk/) to display daily water level charts for each station in UK.
 
 ## Features
 
