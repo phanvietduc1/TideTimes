@@ -12,16 +12,7 @@ struct TideDetailView: View {
                 } else if let error = tideService.error {
                     errorView(error)
                 } else {
-                    // Current tide card
-                    if let currentTide = getCurrentTideInfo() {
-                        currentTideCard(currentTide)
-                    }
-                    
-                    // Tide graph
-                    tideGraphCard
-                    
-                    // Next 24h events
-                    nextEventsCard
+                    // draw graph
                 }
             }
             .padding()
