@@ -180,3 +180,34 @@ struct IndividualStationResponse: Codable {
 
 }
 
+struct OneDayData: Codable {
+    let context: String
+    let meta: Meta
+    let items: [Item]
+
+    enum CodingKeys: String, CodingKey {
+        case context = "@context"
+        case meta, items
+    }
+}
+
+// MARK: - Item
+struct Item: Codable {
+    let id: String
+    let dateTime: Date
+    let measure: String
+    let value: Double
+
+    enum CodingKeys: String, CodingKey {
+        case id = "@id"
+        case dateTime, measure, value
+    }
+}
+
+struct Meta: Codable {
+    let publisher: String
+    let licence, documentation: String
+    let version, comment: String
+    let hasFormat: [String]
+    let limit: Int
+}

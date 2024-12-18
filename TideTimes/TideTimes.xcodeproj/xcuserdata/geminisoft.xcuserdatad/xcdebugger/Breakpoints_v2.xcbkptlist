@@ -18,6 +18,36 @@
             endingLineNumber = "65"
             landmarkName = "loadStations()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EA651140-D811-4273-AD71-600A222F5ABE - 4963b83b3b6962c3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for TideTimes.StationListView.loadStations() async -&gt; ()"
+                  moduleName = "TideTimes.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/geminisoft/vDuc/ios/AI_App/TideTimes/TideTimes/Views/StationListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69">
+               </Location>
+               <Location
+                  uuid = "EA651140-D811-4273-AD71-600A222F5ABE - 4963b83b3b696247"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for TideTimes.StationListView.loadStations() async -&gt; ()"
+                  moduleName = "TideTimes.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/geminisoft/vDuc/ios/AI_App/TideTimes/TideTimes/Views/StationListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

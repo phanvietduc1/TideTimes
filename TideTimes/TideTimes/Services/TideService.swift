@@ -3,17 +3,32 @@ import Combine
 import Alamofire
 
 class TideService: ObservableObject {
-    @Published var data: IndividualStationResponse.StationData = IndividualStationResponse.StationData(id: "0")
+    @Published var data: [Item] = []
     @Published var isLoading = false
     @Published var error: Error?
     
+    func getISOStartOfDay() -> String {
+        let calendar = Calendar.current
+        let now = Date()
+        
+        // Lấy 0 giờ 0 phút ngày hôm nay
+        let startOfDay = calendar.startOfDay(for: now)
+        
+        // Định dạng theo ISO 8601
+        let isoFormatter = ISO8601DateFormatter()
+        isoFormatter.timeZone = TimeZone(secondsFromGMT: 0) // UTC timezone
+        
+        return isoFormatter.string(from: startOfDay)
+    }
     // MARK: - API Endpoints
-    private func fetchTideData(notation: String) async throws -> IndividualStationResponse {
-        let urlString = "https://environment.data.gov.uk/flood-monitoring/id/stations/\(notation).json"
+    private func fetchTideData(notation: String) async throws -> OneDayData {
+        // https://environment.data.gov.uk/flood-monitoring/id/measures/E72639-level-tidal_level-Mean-15_min-mAOD/readings?since=2024-12-17T10:00:00Z&_sorted&_limit=50
+        
+        let urlString = "https://environment.data.gov.uk/flood-monitoring/id/measures/\(notation)-level-tidal_level-Mean-15_min-mAOD/readings?since=\(getISOStartOfDay())&_sorted&_limit=50"
         print("Fetching tide data from Storm Glass API: \(urlString)")
         return try await AF.request(
             urlString
-        ).serializingDecodable(IndividualStationResponse.self).value
+        ).serializingDecodable(OneDayData.self).value
     }
     
     // MARK: - Public Methods
@@ -21,7 +36,7 @@ class TideService: ObservableObject {
         DispatchQueue.main.async {
             self.isLoading = true
             self.error = nil
-            self.data = IndividualStationResponse.StationData(id: "0")
+            self.data = []
         }
         
         do {
